@@ -1,3 +1,7 @@
+#include <vector>
+#include <string>
+#include <cstdint>
+#include <cstring>
 #ifndef 71_BASE58_H
 #define 71_BASE58_H
 
