@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.22.1)
 
-project("para o puzzle 71")
+project(puzzle71)
 
 # ---------------------------------------------------------------------------
 # libsecp256k1 (bitcoin-core) via FetchContent
@@ -17,8 +17,8 @@ set(SECP256K1_INSTALL OFF CACHE BOOL "" FORCE)
 set(SECP256K1_DISABLE_SHARED ON CACHE BOOL "" FORCE)
 
 FetchContent_Declare(
-        secp256k1
-        GIT_REPOSITORY https://github.com/bitcoin-core/secp256k1.git
+    secp256k1
+    GIT_REPOSITORY https://github.com/bitcoin-core/secp256k1.git
     GIT_TAG v0.5.1
 )
 FetchContent_MakeAvailable(secp256k1)
@@ -26,17 +26,21 @@ FetchContent_MakeAvailable(secp256k1)
 # ---------------------------------------------------------------------------
 # Native searcher library (loaded by System.loadLibrary("71"))
 # ---------------------------------------------------------------------------
-add_library(${CMAKE_PROJECT_NAME} SHARED
-        bitcoin_searcher.cpp
-        secp256k1_utils.cpp
-        sha256.cpp
-        ripemd160.cpp
-        base58.cpp)
+set(TARGET_NAME puzzle71)
 
-target_compile_features(${CMAKE_PROJECT_NAME} PRIVATE cxx_std_17)
-target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE -O3 -funroll-loops)
+add_library(${TARGET_NAME} SHARED
+    bitcoin_searcher.cpp
+    secp256k1_utils.cpp
+    sha256.cpp
+    ripemd160.cpp
+    base58.cpp)
 
-target_link_libraries(${CMAKE_PROJECT_NAME}
-        secp256k1
-        android
-        log)
+set_target_properties(${TARGET_NAME} PROPERTIES OUTPUT_NAME "71")
+
+target_compile_features(${TARGET_NAME} PRIVATE cxx_std_17)
+target_compile_options(${TARGET_NAME} PRIVATE -O3 -funroll-loops)
+
+target_link_libraries(${TARGET_NAME}
+    secp256k1
+    android
+    log)
