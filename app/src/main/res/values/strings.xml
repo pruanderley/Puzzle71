@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Puzzle 71</string>
+    <string name="status_running">Buscando…</string>
+    <string name="status_stopped">Parado</string>
+    <string name="notif_channel">Busca Bitcoin</string>
+    <string name="notif_title">Puzzle 71 em execução</string>
+</resources>
