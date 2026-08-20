@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/puzzleInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Puzzle">
+        <AutoCompleteTextView
+            android:id="@+id/puzzleDropdown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="12dp">
+        <Button android:id="@+id/startButton" android:layout_width="0dp"
+            android:layout_height="wrap_content" android:layout_weight="1"
+            android:text="Iniciar" android:layout_marginEnd="8dp"/>
+        <Button android:id="@+id/stopButton" android:layout_width="0dp"
+            android:layout_height="wrap_content" android:layout_weight="1"
+            android:text="Parar" android:enabled="false"/>
+    </LinearLayout>
+
+    <ProgressBar android:id="@+id/progress"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:visibility="gone" android:layout_marginTop="8dp"/>
+
+    <TextView android:id="@+id/statusText"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="16dp" android:textSize="16sp"/>
+
+    <TextView android:id="@+id/currentKeyText"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" android:fontFamily="monospace" android:textSize="12sp"/>
+
+    <TextView android:id="@+id/statsText"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"/>
+
+    <LinearLayout android:id="@+id/resultLayout"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:visibility="gone"
+        android:layout_marginTop="16dp">
+        <TextView android:id="@+id/resultText"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:textSize="14sp" android:fontFamily="monospace"/>
+        <Button android:id="@+id/copyButton"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Copiar Chave" android:layout_marginTop="8dp"/>
+    </LinearLayout>
+</LinearLayout>
